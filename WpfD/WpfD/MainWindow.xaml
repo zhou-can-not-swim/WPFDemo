@@ -1,0 +1,28 @@
+﻿<Window x:Class="WpfD.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfD"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- 导航栏 -->
+        <StackPanel Orientation="Vertical" Background="LightGray" Grid.Row="0">
+            <Button Content="软件安装" Margin="5" Click="NavigateToPage1"/>
+            <Button Content="第二个页面" Margin="5" Click="NavigateToPage2"/>
+        </StackPanel>
+
+        <!-- 内容区域 -->
+        <!-- 导航UI（用户界面）的可见性为“隐藏” 也就是前进后退那个按钮 
+        JournalOwnership="OwnsJournal"拥有并管理自己的独立导航日志
+    -->
+        <Frame x:Name="MainFrame" Grid.Column="1" NavigationUIVisibility="Hidden"
+       JournalOwnership="OwnsJournal"/>
+    </Grid>
+</Window>
