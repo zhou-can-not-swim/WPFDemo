@@ -1,0 +1,36 @@
+﻿<Window x:Class="WpfD.Dialog.AddDownloadUrlWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfD.Dialog"
+        mc:Ignorable="d"
+        Title="添加软件" Height="250" Width="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="名称" x:Name="Name" Grid.Row="0" Grid.Column="0" Margin="10"/>
+        <TextBox x:Name="nameTextBox" Text="{Binding Name}" Grid.Row="0" Grid.Column="1" Margin="10"/>
+
+        <TextBlock Text="图标链接" x:Name="iconUrl" Grid.Row="1" Grid.Column="0" Margin="10"/>
+        <TextBox x:Name="iconUrlTextBox" Text="{Binding IconUrl}" Grid.Row="1" Grid.Column="1" Margin="10"/>
+        
+        <TextBlock Text="下载链接" x:Name="downLoadUrl" Grid.Row="2" Grid.Column="0" Margin="10"/>
+        <TextBox x:Name="downLoadUrlTextBox" Text="{Binding DownloadUrl}" Grid.Row="2" Grid.Column="1" Margin="10"/>
+
+        <TextBlock Text="网站链接" x:Name="detailUrl" Grid.Row="3" Grid.Column="0" Margin="10"/>
+        <TextBox x:Name="detailUrlTextBox" Text="{Binding Detail}" Grid.Row="3" Grid.Column="1" Margin="10"/>
+
+        <Button x:Name="addButton" Content="添加" Grid.Row="4" Grid.ColumnSpan="2" Width="100"  Margin="10" Command="{Binding AddSoftWareCommand}"/>
+    </Grid>
+</Window>

@@ -101,7 +101,7 @@ namespace WpfD.ViewPage {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/WpfD;V1.0.0.0;component/viewpage/page1.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/WpfD;component/viewpage/page1.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\ViewPage\Page1.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

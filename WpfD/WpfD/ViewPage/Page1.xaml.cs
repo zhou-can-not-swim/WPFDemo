@@ -7,6 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
+using WpfD.Dialog;
 using WpfD.Model;
 
 namespace WpfD.ViewPage
@@ -90,7 +91,7 @@ namespace WpfD.ViewPage
             Image image = new Image
             {
                 Source = new BitmapImage(new Uri(softWare.IconUrl)),//设置图片源
-                Stretch = Stretch.UniformToFill,//图片填充方式 均匀填充
+                Stretch = Stretch.Uniform,//图片填充方式 均匀填充
                 Style = this.TryFindResource("HoverImageStyle") as Style//应用悬停样式
             };
 
@@ -346,7 +347,7 @@ namespace WpfD.ViewPage
 
         private void AddDownloadUrl(object sender, RoutedEventArgs e)
         {
-
+            new AddDownloadUrlWindow().ShowDialog();
         }
 
         //private async void CancelButton_Click(object sender, RoutedEventArgs e)
