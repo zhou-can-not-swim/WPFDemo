@@ -25,7 +25,8 @@ namespace WpfD.Dialog
             InitializeComponent();
             SoftWareViewModel softWareViewModel = new SoftWareViewModel();
 
-            softWareViewModel.RequestClose += (s, e) => this.Close();
+            softWareViewModel.RequestClose += (s, e) => this.Close();//当 softWareViewModel 对象触发事件RequestClose时
+                                                                     //就关闭当前这个窗口（或页面）。
 
             this.DataContext = softWareViewModel;
         }

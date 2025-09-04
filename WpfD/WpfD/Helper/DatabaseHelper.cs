@@ -1,6 +1,7 @@
 ﻿using System.Data.SQLite;
 using System.IO;
 using System.Windows;
+using System.Xml.Linq;
 using WpfD.Model;
 
 namespace WpfD.Helper
@@ -158,6 +159,45 @@ namespace WpfD.Helper
                 }
             }
             return null;
+        }
+
+        // 搜索软件（返回列表）
+        public List<SoftWare> SearchSoftWares(string search)
+        {
+            var results = new List<SoftWare>();
+
+            // 如果搜索条件为空，返回空列表或所有记录（根据需求）
+            if (string.IsNullOrWhiteSpace(search))
+            {
+                return results; // 或者返回所有软件
+            }
+
+            using (var connection = new SQLiteConnection(connectionString))
+            {
+                connection.Open();
+                string query = "SELECT * FROM SoftWares WHERE Name LIKE @Name";
+
+                using (var command = new SQLiteCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Name", "%" + search + "%");
+
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read()) // 使用 while 读取所有结果
+                        {
+                            results.Add(new SoftWare
+                            {
+                                Id = Convert.ToInt32(reader["Id"]),
+                                Name = reader["Name"].ToString(),
+                                IconUrl = reader["IconUrl"]?.ToString(), // 空值安全
+                                DownloadUrl = reader["DownloadUrl"]?.ToString(),
+                                Detail = reader["Detail"]?.ToString(),
+                            });
+                        }
+                    }
+                }
+            }
+            return results;
         }
     }
 }

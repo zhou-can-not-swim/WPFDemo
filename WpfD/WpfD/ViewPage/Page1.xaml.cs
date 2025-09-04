@@ -9,6 +9,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using WpfD.Dialog;
 using WpfD.Model;
+using WpfD.ViewModel;
 
 namespace WpfD.ViewPage
 {
@@ -25,8 +26,30 @@ namespace WpfD.ViewPage
         public Page1()
         {
             InitializeComponent();
+            var viewModel = new SoftWareViewModel();//设置数据源
+            this.DataContext = viewModel;
+            // 订阅搜索完成事件
+            viewModel.SearchCompleted += OnSearchCompleted;
+
             Loaded += MainWindow_Loaded;
         }
+        //搜索完成事件处理程序
+        private void OnSearchCompleted(List<SoftWare> softWares)
+        {
+            // 确保在 UI 线程上执行
+            Dispatcher.Invoke(() =>
+            {
+                // 先清空现有内容（如果需要）
+                ImageContainer.Children.Clear();
+                _progressBars.Clear();
+                // 添加新的搜索结果
+                foreach (var item in softWares)
+                {
+                    AddImage(item);
+                }
+            });
+        }
+
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
@@ -74,6 +97,7 @@ namespace WpfD.ViewPage
             //progressBar.Visibility = Visibility.Hidden;
 
             // 2添加到字典
+
             _progressBars.Add(softWare.Id.ToString(), (progressBar, progressText));
 
             // 创建网格布局

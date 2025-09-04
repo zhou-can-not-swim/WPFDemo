@@ -17,10 +17,36 @@ namespace WpfD.ViewModel
 
         public ObservableCollection<SoftWare> SoftWares { get; set; }
         public ICommand AddSoftWareCommand { get; set; }
+        //模糊搜索
+        public ICommand DoSearch { get; set; }
+
+        // 在 搜索完成事件
+        public event Action<List<SoftWare>> SearchCompleted;
 
         public SoftWareViewModel()
         {
             AddSoftWareCommand = new RelayCommand(AddSoftWare, CanAddUser);
+            DoSearch = new RelayCommand(DoSearchMethod, CanDoSearchMethod);
+
+        }
+        private bool CanDoSearchMethod(object obj)
+        {
+            return true;
+        }
+
+        //查找软件的方法
+        private void DoSearchMethod(object obj)
+        {
+            try
+            { 
+                List<SoftWare> softWares = App.Database.SearchSoftWares(_search);
+                SearchCompleted?.Invoke(softWares);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("查找软件失败，多找找自己的问题！！！");
+            }
+
 
         }
 
@@ -107,6 +133,21 @@ namespace WpfD.ViewModel
                 {
                     _detail = value;
                     OnPropertyChanged(nameof(Detail));
+                }
+            }
+        }
+
+        //模糊搜索
+        private string? _search;
+        public string Search
+        {
+            get { return _search; }
+            set
+            {
+                if (_search != value)
+                {
+                    _search = value;
+                    OnPropertyChanged(nameof(Search));
                 }
             }
         }
