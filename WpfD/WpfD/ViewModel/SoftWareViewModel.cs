@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using WpfD.Model;
@@ -16,6 +11,10 @@ namespace WpfD.ViewModel
     //当绑定到UI元素的数据源中的属性值发生更改时，INotifyPropertyChanged接口可以通知UI元素更新。
     public class SoftWareViewModel : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler? PropertyChanged;
+        //控制页面关闭的命令
+        public event EventHandler RequestClose;
+
         public ObservableCollection<SoftWare> SoftWares { get; set; }
         public ICommand AddSoftWareCommand { get; set; }
 
@@ -41,6 +40,10 @@ namespace WpfD.ViewModel
                 softWare.DownloadUrl = DownloadUrl;
                 softWare.Detail = Detail;
                 App.Database.AddSoftWare(softWare);
+
+                // 触发关闭事件
+                RequestClose?.Invoke(this, EventArgs.Empty);
+
             }
             catch(Exception ex)
             {
@@ -107,9 +110,6 @@ namespace WpfD.ViewModel
                 }
             }
         }
-
-
-        public event PropertyChangedEventHandler? PropertyChanged;
 
         protected virtual void OnPropertyChanged(string propertyName)
         {

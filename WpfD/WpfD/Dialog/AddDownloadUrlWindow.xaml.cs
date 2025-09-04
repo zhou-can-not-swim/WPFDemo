@@ -24,6 +24,9 @@ namespace WpfD.Dialog
         {
             InitializeComponent();
             SoftWareViewModel softWareViewModel = new SoftWareViewModel();
+
+            softWareViewModel.RequestClose += (s, e) => this.Close();
+
             this.DataContext = softWareViewModel;
         }
     }
