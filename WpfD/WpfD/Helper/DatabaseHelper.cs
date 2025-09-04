@@ -1,5 +1,6 @@
 ﻿using System.Data.SQLite;
 using System.IO;
+using System.Windows;
 using WpfD.Model;
 
 namespace WpfD.Helper
@@ -49,14 +50,23 @@ namespace WpfD.Helper
                 connection.Open();
                 string query = "INSERT INTO SoftWares (Name,IconUrl,DownloadUrl,Detail) VALUES (@Name, @IconUrl,@DownloadUrl,@Detail)";
 
-                using (var command = new SQLiteCommand(query, connection))
+                try
                 {
-                    command.Parameters.AddWithValue("@Name", softWare.Name);
-                    command.Parameters.AddWithValue("@IconUrl", softWare.IconUrl);
-                    command.Parameters.AddWithValue("@DownloadUrl", softWare.DownloadUrl);
-                    command.Parameters.AddWithValue("@Detail", softWare.Detail);
-                    command.ExecuteNonQuery();
+                    using (var command = new SQLiteCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@Name", softWare.Name);
+                        command.Parameters.AddWithValue("@IconUrl", softWare.IconUrl);
+                        command.Parameters.AddWithValue("@DownloadUrl", softWare.DownloadUrl);
+                        command.Parameters.AddWithValue("@Detail", softWare.Detail);
+                        command.ExecuteNonQuery();
+                    }
+                    MessageBox.Show("添加成功！");
                 }
+                catch(SQLiteException ex)
+                {
+                    MessageBox.Show("添加失败！");
+                }
+                
             }
         }
 
