@@ -55,3 +55,6 @@ C:\Users\qiyu.zhou\Desktop\WPFDemo\WpfD\WpfD\obj\Debug\net8.0-windows\WpfD.cspro
 C:\Users\qiyu.zhou\Desktop\WPFDemo\WpfD\WpfD\obj\Debug\net8.0-windows\ViewPage\SettingsPage.g.cs
 C:\Users\qiyu.zhou\Desktop\WPFDemo\WpfD\WpfD\obj\Debug\net8.0-windows\ViewPage\SettingsPage.baml
 C:\Users\qiyu.zhou\Desktop\WPFDemo\WpfD\WpfD\obj\Debug\net8.0-windows\WpfD.csproj.Up2Date
+C:\Users\qiyu.zhou\Desktop\WPFDemo\WpfD\WpfD\obj\Debug\net8.0-windows\WpfD.sourcelink.json
+C:\Users\qiyu.zhou\Desktop\WPFDemo\WpfD\WpfD\obj\Debug\net8.0-windows\Dialog\AddDownloadUrlWindow.g.cs
+C:\Users\qiyu.zhou\Desktop\WPFDemo\WpfD\WpfD\obj\Debug\net8.0-windows\Dialog\AddDownloadUrlWindow.baml

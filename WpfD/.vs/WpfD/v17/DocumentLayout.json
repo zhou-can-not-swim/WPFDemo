@@ -11,12 +11,12 @@
       "RelativeMoniker": "D:0:0:{BCDD6FE4-4789-4ADF-A756-7E4E1DFD304E}|WpfD\\WpfD.csproj|solutionrelative:wpfd\\viewpage\\page1.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BCDD6FE4-4789-4ADF-A756-7E4E1DFD304E}|WpfD\\WpfD.csproj|c:\\users\\qiyu.zhou\\desktop\\wpfdemo\\wpfd\\wpfd\\viewpage\\page1.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{BCDD6FE4-4789-4ADF-A756-7E4E1DFD304E}|WpfD\\WpfD.csproj|solutionrelative:wpfd\\viewpage\\page1.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{BCDD6FE4-4789-4ADF-A756-7E4E1DFD304E}|WpfD\\WpfD.csproj|c:\\users\\qiyu.zhou\\desktop\\wpfdemo\\wpfd\\wpfd\\dialog\\adddownloadurlwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCDD6FE4-4789-4ADF-A756-7E4E1DFD304E}|WpfD\\WpfD.csproj|solutionrelative:wpfd\\dialog\\adddownloadurlwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BCDD6FE4-4789-4ADF-A756-7E4E1DFD304E}|WpfD\\WpfD.csproj|c:\\users\\qiyu.zhou\\desktop\\wpfdemo\\wpfd\\wpfd\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{BCDD6FE4-4789-4ADF-A756-7E4E1DFD304E}|WpfD\\WpfD.csproj|solutionrelative:wpfd\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{BCDD6FE4-4789-4ADF-A756-7E4E1DFD304E}|WpfD\\WpfD.csproj|c:\\users\\qiyu.zhou\\desktop\\wpfdemo\\wpfd\\wpfd\\utils\\relaycommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCDD6FE4-4789-4ADF-A756-7E4E1DFD304E}|WpfD\\WpfD.csproj|solutionrelative:wpfd\\utils\\relaycommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BCDD6FE4-4789-4ADF-A756-7E4E1DFD304E}|WpfD\\WpfD.csproj|c:\\users\\qiyu.zhou\\desktop\\wpfdemo\\wpfd\\wpfd\\helper\\databasehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -25,6 +25,34 @@
     {
       "AbsoluteMoniker": "D:0:0:{BCDD6FE4-4789-4ADF-A756-7E4E1DFD304E}|WpfD\\WpfD.csproj|c:\\users\\qiyu.zhou\\desktop\\wpfdemo\\wpfd\\wpfd\\model\\software.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BCDD6FE4-4789-4ADF-A756-7E4E1DFD304E}|WpfD\\WpfD.csproj|solutionrelative:wpfd\\model\\software.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCDD6FE4-4789-4ADF-A756-7E4E1DFD304E}|WpfD\\WpfD.csproj|c:\\users\\qiyu.zhou\\desktop\\wpfdemo\\wpfd\\wpfd\\dialog\\adddownloadurlwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{BCDD6FE4-4789-4ADF-A756-7E4E1DFD304E}|WpfD\\WpfD.csproj|solutionrelative:wpfd\\dialog\\adddownloadurlwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCDD6FE4-4789-4ADF-A756-7E4E1DFD304E}|WpfD\\WpfD.csproj|c:\\users\\qiyu.zhou\\desktop\\wpfdemo\\wpfd\\wpfd\\viewpage\\page1.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{BCDD6FE4-4789-4ADF-A756-7E4E1DFD304E}|WpfD\\WpfD.csproj|solutionrelative:wpfd\\viewpage\\page1.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCDD6FE4-4789-4ADF-A756-7E4E1DFD304E}|WpfD\\WpfD.csproj|c:\\users\\qiyu.zhou\\desktop\\wpfdemo\\wpfd\\wpfd\\viewpage\\page2.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{BCDD6FE4-4789-4ADF-A756-7E4E1DFD304E}|WpfD\\WpfD.csproj|solutionrelative:wpfd\\viewpage\\page2.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCDD6FE4-4789-4ADF-A756-7E4E1DFD304E}|WpfD\\WpfD.csproj|c:\\users\\qiyu.zhou\\desktop\\wpfdemo\\wpfd\\wpfd\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCDD6FE4-4789-4ADF-A756-7E4E1DFD304E}|WpfD\\WpfD.csproj|solutionrelative:wpfd\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCDD6FE4-4789-4ADF-A756-7E4E1DFD304E}|WpfD\\WpfD.csproj|c:\\users\\qiyu.zhou\\desktop\\wpfdemo\\wpfd\\wpfd\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{BCDD6FE4-4789-4ADF-A756-7E4E1DFD304E}|WpfD\\WpfD.csproj|solutionrelative:wpfd\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCDD6FE4-4789-4ADF-A756-7E4E1DFD304E}|WpfD\\WpfD.csproj|c:\\users\\qiyu.zhou\\desktop\\wpfdemo\\wpfd\\wpfd\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCDD6FE4-4789-4ADF-A756-7E4E1DFD304E}|WpfD\\WpfD.csproj|solutionrelative:wpfd\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCDD6FE4-4789-4ADF-A756-7E4E1DFD304E}|WpfD\\WpfD.csproj|c:\\users\\qiyu.zhou\\desktop\\wpfdemo\\wpfd\\wpfd\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{BCDD6FE4-4789-4ADF-A756-7E4E1DFD304E}|WpfD\\WpfD.csproj|solutionrelative:wpfd\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,7 +62,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 158,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -58,32 +86,97 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "RelayCommand.cs",
+              "DocumentMoniker": "C:\\Users\\qiyu.zhou\\Desktop\\WPFDemo\\WpfD\\WpfD\\Utils\\RelayCommand.cs",
+              "RelativeDocumentMoniker": "WpfD\\Utils\\RelayCommand.cs",
+              "ToolTip": "C:\\Users\\qiyu.zhou\\Desktop\\WPFDemo\\WpfD\\WpfD\\Utils\\RelayCommand.cs",
+              "RelativeToolTip": "WpfD\\Utils\\RelayCommand.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAACUAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-03T08:37:49.844Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Page1.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\qiyu.zhou\\Desktop\\WPFDemo\\WpfD\\WpfD\\ViewPage\\Page1.xaml.cs",
+              "RelativeDocumentMoniker": "WpfD\\ViewPage\\Page1.xaml.cs",
+              "ToolTip": "C:\\Users\\qiyu.zhou\\Desktop\\WPFDemo\\WpfD\\WpfD\\ViewPage\\Page1.xaml.cs",
+              "RelativeToolTip": "WpfD\\ViewPage\\Page1.xaml.cs",
+              "ViewState": "AgIAAJsAAAAAAAAAAADgv2YAAABQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-03T03:08:51.774Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AddDownloadUrlWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\qiyu.zhou\\Desktop\\WPFDemo\\WpfD\\WpfD\\Dialog\\AddDownloadUrlWindow.xaml.cs",
+              "RelativeDocumentMoniker": "WpfD\\Dialog\\AddDownloadUrlWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\qiyu.zhou\\Desktop\\WPFDemo\\WpfD\\WpfD\\Dialog\\AddDownloadUrlWindow.xaml.cs",
+              "RelativeToolTip": "WpfD\\Dialog\\AddDownloadUrlWindow.xaml.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABYAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-03T08:29:42.102Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "SoftWareViewModel.cs",
               "DocumentMoniker": "C:\\Users\\qiyu.zhou\\Desktop\\WPFDemo\\WpfD\\WpfD\\ViewModel\\SoftWareViewModel.cs",
               "RelativeDocumentMoniker": "WpfD\\ViewModel\\SoftWareViewModel.cs",
               "ToolTip": "C:\\Users\\qiyu.zhou\\Desktop\\WPFDemo\\WpfD\\WpfD\\ViewModel\\SoftWareViewModel.cs",
               "RelativeToolTip": "WpfD\\ViewModel\\SoftWareViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABEAAAAAAAAAAAAlwCIAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-03T07:46:52.113Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\qiyu.zhou\\Desktop\\WPFDemo\\WpfD\\WpfD\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "WpfD\\MainWindow.xaml",
-              "ToolTip": "C:\\Users\\qiyu.zhou\\Desktop\\WPFDemo\\WpfD\\WpfD\\MainWindow.xaml",
-              "RelativeToolTip": "WpfD\\MainWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-09-03T07:37:58.039Z",
+              "DocumentIndex": 4,
+              "Title": "DatabaseHelper.cs",
+              "DocumentMoniker": "C:\\Users\\qiyu.zhou\\Desktop\\WPFDemo\\WpfD\\WpfD\\Helper\\DatabaseHelper.cs",
+              "RelativeDocumentMoniker": "WpfD\\Helper\\DatabaseHelper.cs",
+              "ToolTip": "C:\\Users\\qiyu.zhou\\Desktop\\WPFDemo\\WpfD\\WpfD\\Helper\\DatabaseHelper.cs",
+              "RelativeToolTip": "WpfD\\Helper\\DatabaseHelper.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAlwDwAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-03T06:08:46.769Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
+              "Title": "SoftWare.cs",
+              "DocumentMoniker": "C:\\Users\\qiyu.zhou\\Desktop\\WPFDemo\\WpfD\\WpfD\\Model\\SoftWare.cs",
+              "RelativeDocumentMoniker": "WpfD\\Model\\SoftWare.cs",
+              "ToolTip": "C:\\Users\\qiyu.zhou\\Desktop\\WPFDemo\\WpfD\\WpfD\\Model\\SoftWare.cs",
+              "RelativeToolTip": "WpfD\\Model\\SoftWare.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-03T06:08:22.744Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AddDownloadUrlWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\qiyu.zhou\\Desktop\\WPFDemo\\WpfD\\WpfD\\Dialog\\AddDownloadUrlWindow.xaml",
+              "RelativeDocumentMoniker": "WpfD\\Dialog\\AddDownloadUrlWindow.xaml",
+              "ToolTip": "C:\\Users\\qiyu.zhou\\Desktop\\WPFDemo\\WpfD\\WpfD\\Dialog\\AddDownloadUrlWindow.xaml",
+              "RelativeToolTip": "WpfD\\Dialog\\AddDownloadUrlWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-09-03T08:16:31.675Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "Page1.xaml",
               "DocumentMoniker": "C:\\Users\\qiyu.zhou\\Desktop\\WPFDemo\\WpfD\\WpfD\\ViewPage\\Page1.xaml",
               "RelativeDocumentMoniker": "WpfD\\ViewPage\\Page1.xaml",
@@ -95,42 +188,64 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "SoftWare.cs",
-              "DocumentMoniker": "C:\\Users\\qiyu.zhou\\Desktop\\WPFDemo\\WpfD\\WpfD\\Model\\SoftWare.cs",
-              "RelativeDocumentMoniker": "WpfD\\Model\\SoftWare.cs",
-              "ToolTip": "C:\\Users\\qiyu.zhou\\Desktop\\WPFDemo\\WpfD\\WpfD\\Model\\SoftWare.cs",
-              "RelativeToolTip": "WpfD\\Model\\SoftWare.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-03T06:08:22.744Z",
+              "DocumentIndex": 10,
+              "Title": "App.xaml",
+              "DocumentMoniker": "C:\\Users\\qiyu.zhou\\Desktop\\WPFDemo\\WpfD\\WpfD\\App.xaml",
+              "RelativeDocumentMoniker": "WpfD\\App.xaml",
+              "ToolTip": "C:\\Users\\qiyu.zhou\\Desktop\\WPFDemo\\WpfD\\WpfD\\App.xaml",
+              "RelativeToolTip": "WpfD\\App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-09-03T08:10:16.191Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Page1.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\qiyu.zhou\\Desktop\\WPFDemo\\WpfD\\WpfD\\ViewPage\\Page1.xaml.cs",
-              "RelativeDocumentMoniker": "WpfD\\ViewPage\\Page1.xaml.cs",
-              "ToolTip": "C:\\Users\\qiyu.zhou\\Desktop\\WPFDemo\\WpfD\\WpfD\\ViewPage\\Page1.xaml.cs",
-              "RelativeToolTip": "WpfD\\ViewPage\\Page1.xaml.cs",
-              "ViewState": "AgIAAPkAAAAAAAAAAAAwwFwBAAAAAAAAAAAAAA==",
+              "DocumentIndex": 9,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\qiyu.zhou\\Desktop\\WPFDemo\\WpfD\\WpfD\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "WpfD\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\qiyu.zhou\\Desktop\\WPFDemo\\WpfD\\WpfD\\MainWindow.xaml.cs",
+              "RelativeToolTip": "WpfD\\MainWindow.xaml.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-03T03:08:51.774Z",
+              "WhenOpened": "2025-09-03T08:11:09.911Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "DatabaseHelper.cs",
-              "DocumentMoniker": "C:\\Users\\qiyu.zhou\\Desktop\\WPFDemo\\WpfD\\WpfD\\Helper\\DatabaseHelper.cs",
-              "RelativeDocumentMoniker": "WpfD\\Helper\\DatabaseHelper.cs",
-              "ToolTip": "C:\\Users\\qiyu.zhou\\Desktop\\WPFDemo\\WpfD\\WpfD\\Helper\\DatabaseHelper.cs",
-              "RelativeToolTip": "WpfD\\Helper\\DatabaseHelper.cs",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAAAFcAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-03T06:08:46.769Z",
+              "DocumentIndex": 8,
+              "Title": "Page2.xaml",
+              "DocumentMoniker": "C:\\Users\\qiyu.zhou\\Desktop\\WPFDemo\\WpfD\\WpfD\\ViewPage\\Page2.xaml",
+              "RelativeDocumentMoniker": "WpfD\\ViewPage\\Page2.xaml",
+              "ToolTip": "C:\\Users\\qiyu.zhou\\Desktop\\WPFDemo\\WpfD\\WpfD\\ViewPage\\Page2.xaml",
+              "RelativeToolTip": "WpfD\\ViewPage\\Page2.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-09-03T08:11:20.85Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "AssemblyInfo.cs",
+              "DocumentMoniker": "C:\\Users\\qiyu.zhou\\Desktop\\WPFDemo\\WpfD\\WpfD\\AssemblyInfo.cs",
+              "RelativeDocumentMoniker": "WpfD\\AssemblyInfo.cs",
+              "ToolTip": "C:\\Users\\qiyu.zhou\\Desktop\\WPFDemo\\WpfD\\WpfD\\AssemblyInfo.cs",
+              "RelativeToolTip": "WpfD\\AssemblyInfo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-03T08:10:15.046Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\qiyu.zhou\\Desktop\\WPFDemo\\WpfD\\WpfD\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "WpfD\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\qiyu.zhou\\Desktop\\WPFDemo\\WpfD\\WpfD\\MainWindow.xaml",
+              "RelativeToolTip": "WpfD\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-09-03T07:37:58.039Z"
             }
           ]
         }

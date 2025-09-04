@@ -47,7 +47,7 @@ namespace WpfD.Helper
             using (var connection = new SQLiteConnection(connectionString))
             {
                 connection.Open();
-                string query = "INSERT INTO SoftWare (Name,IconUrl,DownloadUrl,Detail) VALUES (@Name, @IconUrl,@DownloadUrl,@Detail)";
+                string query = "INSERT INTO SoftWares (Name,IconUrl,DownloadUrl,Detail) VALUES (@Name, @IconUrl,@DownloadUrl,@Detail)";
 
                 using (var command = new SQLiteCommand(query, connection))
                 {
