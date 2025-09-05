@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using WpfD.Dialog;
+using WpfD.Helper;
 using WpfD.Model;
 using WpfD.ViewModel;
 
@@ -23,16 +24,39 @@ namespace WpfD.ViewPage
         // 1在类级别添加字典
         private Dictionary<string, (ProgressBar ProgressBar, TextBlock TextBlock)> _progressBars = 
             new Dictionary<string, (ProgressBar, TextBlock)>();
+
+
+        // 在类级别添加已加载标记
+        private bool _isPageLoaded = false;
+        private List<string> _activeDownloadIds = new List<string>();
+
         public Page1()
         {
             InitializeComponent();
-            var viewModel = new SoftWareViewModel();//设置数据源
+            var viewModel = new SoftWareViewModel();//设置数据源,会有命令的绑定
             this.DataContext = viewModel;
             // 订阅搜索完成事件
             viewModel.SearchCompleted += OnSearchCompleted;
 
-            Loaded += MainWindow_Loaded;
+            Loaded += Page_Loaded;
+            Unloaded += Page_Unloaded;
         }
+
+        private void Page_Unloaded(object sender, RoutedEventArgs e)
+        {
+            _isPageLoaded = false;
+            // 注意：不要在这里取消下载，只移除UI引用
+            _activeDownloadIds.Clear();
+        }
+        // 辅助方法：从下载ID提取软件ID
+        private string GetSoftwareIdFromDownloadId(string downloadId)
+        {
+            // 根据你的ID生成逻辑实现
+            // 例如，如果你使用软件ID作为下载ID的一部分
+            return downloadId.Split('_')[0]; // 假设格式为 "softwareId_urlHash"
+        }
+
+
         //搜索完成事件处理程序
         private void OnSearchCompleted(List<SoftWare> softWares)
         {
@@ -62,6 +86,11 @@ namespace WpfD.ViewPage
 
         private void AddImage(SoftWare softWare)
         {
+            // 检查是否已经添加过这个软件
+            if (_progressBars.ContainsKey(softWare.Id.ToString()))
+            {
+                return;
+            }
             // 创建边框容器
             Border border = new Border//设置边框
             {
@@ -215,83 +244,84 @@ namespace WpfD.ViewPage
             overlay.BeginAnimation(Border.OpacityProperty, opacityAnimation);
         }
 
-        private async void DownloadButton_Click(object sender, RoutedEventArgs e)
-        {
-            Button button = sender as Button;
+        //下载按钮点击事件
+        //private async void DownloadButton_Click(object sender, RoutedEventArgs e)
+        //{
+        //    Button button = sender as Button;
 
-            // Tag使用的是匿名对象
-            var data = button.Tag as dynamic; // 使用 dynamic
-            string downloadUrl = data.Url;
-            string id = data.Id.ToString();
-            //MessageBox.Show($"开始下载图片: {iconUrl}", "下载", MessageBoxButton.OK, MessageBoxImage.Information);
+        //    // Tag使用的是匿名对象
+        //    var data = button.Tag as dynamic; // 使用 dynamic
+        //    string downloadUrl = data.Url;
+        //    string id = data.Id.ToString();
+        //    //MessageBox.Show($"开始下载图片: {iconUrl}", "下载", MessageBoxButton.OK, MessageBoxImage.Information);
 
-            //OpenFolderDialog dialog = new();//打开文件夹
+        //    //OpenFolderDialog dialog = new();//打开文件夹
 
-            var dialog = new SaveFileDialog();
-            dialog.Filter = "可执行文件|*.exe|所有文件|*.*";
-            if (dialog.ShowDialog() == true)
-            {
-                //dialog.Multiselect = false;//允许多选   false
-                dialog.Title = "Select a folder";//标题
+        //    var dialog = new SaveFileDialog();
+        //    dialog.Filter = "可执行文件|*.exe|所有文件|*.*";
+        //    if (dialog.ShowDialog() == true)
+        //    {
+        //        //dialog.Multiselect = false;//允许多选   false
+        //        dialog.Title = "Select a folder";//标题
 
-                string fullPathToFolder = dialog.FileName;//可以下载到这个路径下
+        //        string fullPathToFolder = dialog.FileName;//可以下载到这个路径下
 
-                // 初始化取消令牌
-                _cancellationTokenSource = new CancellationTokenSource();
-                var cancellationToken = _cancellationTokenSource.Token;
+        //        // 初始化取消令牌
+        //        _cancellationTokenSource = new CancellationTokenSource();
+        //        var cancellationToken = _cancellationTokenSource.Token;
 
-                // 更新UI状态
-                button.IsEnabled = false;
-                //找到进度条控件的名字
+        //        // 更新UI状态
+        //        button.IsEnabled = false;
+        //        //找到进度条控件的名字
 
 
-                // 通过名称查找控件
-                //ProgressBar progressBar = ImageContainer.Children
-                //.OfType<ProgressBar>()
-                //.FirstOrDefault(pb => pb.Tag?.ToString() == "ProgressBar" + button.Content.ToString().Split("-")[1]);
+        //        // 通过名称查找控件
+        //        //ProgressBar progressBar = ImageContainer.Children
+        //        //.OfType<ProgressBar>()
+        //        //.FirstOrDefault(pb => pb.Tag?.ToString() == "ProgressBar" + button.Content.ToString().Split("-")[1]);
 
-                // 3在DownloadButton_Click中直接使用
-                string index = id;
-                ProgressBar progressBar = _progressBars[index].ProgressBar;
-                TextBlock textBlock = _progressBars[index].TextBlock;
+        //        // 3在DownloadButton_Click中直接使用
+        //        string index = id;
+        //        ProgressBar progressBar = _progressBars[index].ProgressBar;
+        //        TextBlock textBlock = _progressBars[index].TextBlock;
 
-                if (progressBar != null)
-                {
-                    progressBar.Value = 0;
-                }
-                button.Content = "开始下载...";
-                //展示进度条
-                progressBar.Visibility= Visibility.Visible;
-                try
-                {
-                    await DownloadFileAsync(downloadUrl, progressBar, textBlock,fullPathToFolder, cancellationToken);
-                    MessageBox.Show("下载完成！");
-                    button.Content = "下载";
-                }
-                catch (OperationCanceledException)//取消操作
-                {
-                    MessageBox.Show("下载已取消,需手动删除已下载的部分文件才能继续下载");
-                    // 删除部分下载的文件
-                    if (File.Exists(fullPathToFolder))
-                    {
-                        File.Delete(fullPathToFolder);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("下载失败");
-                }
-                finally
-                {
-                    // 恢复UI状态
-                    button.IsEnabled = true;
-                    _cancellationTokenSource?.Dispose();//确保释放取消令牌
-                    _cancellationTokenSource = null;
-                }
+        //        if (progressBar != null)
+        //        {
+        //            progressBar.Value = 0;
+        //        }
+        //        button.Content = "开始下载...";
+        //        //展示进度条
+        //        progressBar.Visibility= Visibility.Visible;
+        //        try
+        //        {
+        //            await DownloadFileAsync(downloadUrl, progressBar, textBlock,fullPathToFolder, cancellationToken);
+        //            MessageBox.Show("下载完成！");
+        //            button.Content = "下载";
+        //        }
+        //        catch (OperationCanceledException)//取消操作
+        //        {
+        //            MessageBox.Show("下载已取消,需手动删除已下载的部分文件才能继续下载");
+        //            // 删除部分下载的文件
+        //            if (File.Exists(fullPathToFolder))
+        //            {
+        //                File.Delete(fullPathToFolder);
+        //            }
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            MessageBox.Show("下载失败");
+        //        }
+        //        finally
+        //        {
+        //            // 恢复UI状态
+        //            button.IsEnabled = true;
+        //            _cancellationTokenSource?.Dispose();//确保释放取消令牌
+        //            _cancellationTokenSource = null;
+        //        }
 
-            }
+        //    }
 
-        }
+        //}
 
         private void OpenButton_Click(object sender, RoutedEventArgs e)
         {
@@ -380,5 +410,196 @@ namespace WpfD.ViewPage
         //    _cancellationTokenSource?.Cancel();
         //    button.Content = "正在取消下载...";
         //}
+
+        //优化之后的下载方案：
+        // 刷新进度条显示 - 关键修改
+        private void RefreshProgressBars()
+        {
+            // 检查所有活跃下载
+            foreach (var downloadId in App.ActiveDownloads.Keys.ToList())
+            {
+                // 如果这个下载属于当前页面
+                if (App.DownloadIdToSoftwareIdMap.TryGetValue(downloadId, out var softwareId))
+                {
+                    // 添加到本页面的活跃下载列表
+                    if (!_activeDownloadIds.Contains(downloadId))
+                    {
+                        _activeDownloadIds.Add(downloadId);
+                    }
+
+                    // 更新进度显示
+                    if (App.DownloadProgresses.TryGetValue(downloadId, out var progressInfo))
+                    {
+                        if (_progressBars.TryGetValue(softwareId, out var progressControls))
+                        {
+                            progressControls.ProgressBar.Value = progressInfo.Percentage;
+                            progressControls.TextBlock.Text = $"{progressInfo.Percentage:F1}%";
+                            progressControls.ProgressBar.Visibility = Visibility.Visible;
+                        }
+                    }
+                    else
+                    {
+                        // 下载正在进行但没有进度信息（刚开始下载）
+                        if (_progressBars.TryGetValue(softwareId, out var progressControls))
+                        {
+                            progressControls.ProgressBar.Value = 0;
+                            progressControls.TextBlock.Text = "0%";
+                            progressControls.ProgressBar.Visibility = Visibility.Visible;
+                        }
+                    }
+                }
+            }
+
+            // 清理已完成或取消的下载
+            foreach (var downloadId in _activeDownloadIds.ToList())
+            {
+                if (!App.ActiveDownloads.ContainsKey(downloadId))
+                {
+                    _activeDownloadIds.Remove(downloadId);
+                }
+            }
+        }
+
+        // 优化下载按钮点击事件
+        private async void DownloadButton_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            var data = button.Tag as dynamic;
+            string downloadUrl = data.Url;
+            string softwareId = data.Id.ToString();
+
+            var dialog = new SaveFileDialog();
+            dialog.Filter = "可执行文件|*.exe|所有文件|*.*";
+            if (dialog.ShowDialog() == true)
+            {
+                string fullPathToFolder = dialog.FileName;//fullPathToFolder(自己写的路径如)=C:\\Users\\qiyu.zhou\\Downloads\\jojoba.exe"
+
+                // 生成唯一的下载ID（使用GUID确保唯一性）
+                string downloadId = Guid.NewGuid().ToString();
+
+                //用于管理和控制异步下载任务的取消操作。
+                var cts = new CancellationTokenSource();
+                App.ActiveDownloads[downloadId] = cts;
+
+                // 建立下载ID到软件ID的映射
+                App.DownloadIdToSoftwareIdMap[downloadId] = softwareId;//也就是哪个软件正在下载（如id(git)=3<---->"fad7eafa-5d14-4407-b409-16823864c293"）
+
+                _activeDownloadIds.Add(downloadId);//正在运行的下载ID放到本页面的集合中去,也就是正在下载的软件
+
+                button.IsEnabled = false;
+
+                //尝试从 _progressBars 字典中查找 softwareId 对应的值
+                //如果找到：将找到的值通过 out 参数赋给 progressControls 变量，并返回 true
+                //如果没找到：返回 false，progressControls 变量会被赋为默认值（null）
+                //其实也就是对全局的字典_progressBars进行赋值
+                if (_progressBars.TryGetValue(softwareId, out var progressControls))
+                {
+                    progressControls.ProgressBar.Value = 0;
+                    progressControls.ProgressBar.Visibility = Visibility.Visible;
+                    progressControls.TextBlock.Text = "0%";
+                }
+
+                button.Content = "开始下载...";
+
+                try
+                {
+                    //Progress<T> 和 元组 +Lambda 表达式
+                    var progress = new Progress<(double Percentage, long BytesReceived, long TotalBytes)>(value =>
+                    {
+                        if (!_isPageLoaded) return;
+
+                        if (_progressBars.TryGetValue(softwareId, out var controls))
+                        {
+                            controls.ProgressBar.Value = value.Percentage;
+                            controls.TextBlock.Text = $"{value.Percentage:F1}%";
+                        }
+                    });
+
+                    // 传递downloadId参数
+                    await DownloadService.DownloadFileAsync(downloadUrl, fullPathToFolder, progress, cts.Token, downloadId);
+
+                    if (_isPageLoaded)
+                    {
+                        MessageBox.Show("下载完成！");
+                        button.Content = "下载";
+                        button.IsEnabled = true;
+                    }
+                }
+                catch (OperationCanceledException)
+                {
+                    if (_isPageLoaded)
+                    {
+                        MessageBox.Show("下载已取消");
+                        if (File.Exists(fullPathToFolder))
+                        {
+                            File.Delete(fullPathToFolder);
+                        }
+                        button.Content = "下载";
+                        button.IsEnabled = true;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    if (_isPageLoaded)
+                    {
+                        MessageBox.Show($"下载失败: {ex.Message}");
+                        button.Content = "下载";
+                        button.IsEnabled = true;
+                    }
+                }
+                finally
+                {
+                    App.ActiveDownloads.Remove(downloadId);
+                    App.DownloadIdToSoftwareIdMap.Remove(downloadId);
+                    _activeDownloadIds.Remove(downloadId);
+                    cts.Dispose();
+                }
+            }
+        }
+
+        // 修改页面加载事件
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            _isPageLoaded = true;
+
+            // 恢复页面时重新绑定进度显示
+            RefreshProgressBars();
+
+            // 只在第一次加载时添加图片
+            if (ImageContainer.Children.Count == 0)
+            {
+                foreach (var item in App.Database.GetAllSoftWares())
+                {
+                    AddImage(item);
+                }
+            }
+        }
+
+
+        // 添加取消下载的方法
+        private void CancelDownload(string id)
+        {
+            if (App.ActiveDownloads.TryGetValue(id, out var cts))
+            {
+                cts.Cancel();
+            }
+        }
+
+
+        // 计算下载速度的辅助方法（可选）
+        private string CalculateSpeed(long bytesReceived, DateTime startTime)
+        {
+            var elapsed = DateTime.Now - startTime;
+            if (elapsed.TotalSeconds < 0.1) return "计算中...";
+
+            double bytesPerSecond = bytesReceived / elapsed.TotalSeconds;
+
+            if (bytesPerSecond > 1024 * 1024)
+                return $"{(bytesPerSecond / (1024 * 1024)):F1} MB/s";
+            else if (bytesPerSecond > 1024)
+                return $"{(bytesPerSecond / 1024):F1} KB/s";
+            else
+                return $"{bytesPerSecond:F1} B/s";
+        }
     }
 }
